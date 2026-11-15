@@ -2,51 +2,22 @@ import { APP_NAME } from '../../constant';
 
 import { browserDetect } from '../browserDetect';
 
-// import { default as bn } from '../../locale/bn/messages.json';
-// import { default as de } from '../../locale/de/messages.json';
-import { default as en_GB } from '../../locale/en_GB/messages.json';
-// import { default as en_US } from '../../locale/en_US/messages.json';
-// import { default as es } from '../../locale/es/messages.json';
-// import { default as fil } from '../../locale/fil/messages.json';
-// import { default as fr } from '../../locale/fr/messages.json';
-// import { default as gu } from '../../locale/gu/messages.json';
-// import { default as hi } from '../../locale/hi/messages.json';
-// import { default as id } from '../../locale/id/messages.json';
-// import { default as it } from '../../locale/it/messages.json';
-// import { default as ja } from '../../locale/ja/messages.json';
-// import { default as ms } from '../../locale/ms/messages.json';
-// import { default as pt } from '../../locale/pt/messages.json';
-// import { default as ru } from '../../locale/ru/messages.json';
-// import { default as uk } from '../../locale/uk/messages.json';
-// import { default as vi } from '../../locale/vi/messages.json';
+
+import { default as en_US } from '../../locale/en_US/messages.json';
+
 
 const message = {};
 
 message.language = {
-  // pack: { bn, de, en_GB, en_US, es, fil, fr, gu, hi, id, it, ja, ms, pt, ru, uk, vi }
-  pack: { en_GB }
+  // pack: { en_US }
+  pack: { en_US }
 };
 
 // message.language.list = () => {
 //
 //   const list = [
-//     { code: 'bn', name: 'বাংলা' }, // Bengali
-//     { code: 'de', name: 'Deutsch' }, // German
-//     { code: 'en_GB', name: 'English' }, // English GB
 //     { code: 'en_US', name: 'English' }, // English USA
-//     { code: 'es', name: 'Español' }, // Spanish
-//     { code: 'fil', name: 'Filipino' }, // Filipino
-//     { code: 'fr', name: 'Français' }, // French
-//     { code: 'gu', name: 'ગુજરાતી' }, // Gujarati
-//     { code: 'hi', name: 'हिंदी' }, // Hindi
-//     { code: 'id', name: 'Indonesia' }, // Indonesian
-//     { code: 'it', name: 'Italiano' }, // Italian
-//     { code: 'ja', name: '日本語' }, // Japanese
-//     { code: 'ms', name: 'Melayu' }, // Malay
-//     { code: 'pt', name: 'Português' }, // Portuguese
-//     { code: 'ru', name: 'Pусский' }, // Russian
-//     { code: 'uk', name: 'український' }, // Ukrainian
-//     { code: 'vi', name: 'англійська' } // Vietnamese
+
 //   ];
 //
 //   list.forEach((item) => {
@@ -85,7 +56,7 @@ message.get = (stringId) => {
 
     } else {
 
-      string = message.language.pack.en_GB[stringId].message;
+      string = message.language.pack.en_US[stringId].message;
 
     }
 
@@ -99,13 +70,13 @@ message.get = (stringId) => {
 
     } else {
 
-      string = message.language.pack.en_GB[stringId].message;
+      string = message.language.pack.en_US[stringId].message;
 
     }
 
   } else {
 
-    string = message.language.pack.en_GB[stringId].message;
+    string = message.language.pack.en_US[stringId].message;
 
   }
 
@@ -124,7 +95,7 @@ message.get = (stringId) => {
   //
   //       } else {
   //
-  //         string = message.language.pack.en_GB[stringId].message;
+  //         string = message.language.pack.en_US[stringId].message;
   //
   //       }
   //
@@ -138,13 +109,13 @@ message.get = (stringId) => {
   //
   //       } else {
   //
-  //         string = message.language.pack.en_GB[stringId].message;
+  //         string = message.language.pack.en_US[stringId].message;
   //
   //       }
   //
   //     } else {
   //
-  //       string = message.language.pack.en_GB[stringId].message;
+  //       string = message.language.pack.en_US[stringId].message;
   //
   //     }
   //
@@ -161,7 +132,7 @@ message.get = (stringId) => {
   //     } else {
   //
   //       // or use default language
-  //       string = message.language.pack.en_GB[stringId].message;
+  //       string = message.language.pack.en_US[stringId].message;
   //
   //     }
   //
