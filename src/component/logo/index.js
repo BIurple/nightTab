@@ -17,7 +17,19 @@ export const Logo = function() {
 
   this.assemble = () => {
 
-    this.element.logo.innerHTML = this.element.svg;
+    // Clear existing content safely
+    while (this.element.logo.firstChild) {
+      this.element.logo.removeChild(this.element.logo.firstChild);
+    }
+
+    // Safely parse the SVG string into DOM nodes using DOMParser (Mozilla-approved)
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(this.element.svg, 'image/svg+xml');
+    const svgElement = doc.documentElement;
+
+    if (svgElement) {
+      this.element.logo.appendChild(svgElement);
+    }
 
   };
 

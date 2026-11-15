@@ -7,7 +7,7 @@ import { isValidString } from '../../utility/isValidString';
 import { complexNode } from '../../utility/complexNode';
 import { clearChildNode } from '../../utility/clearChildNode';
 
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 import './index.css';
 
@@ -43,19 +43,19 @@ export const Clock = function () {
 
       case 'word':
 
-        value = this.now.hours();
+        value = this.now.hour();
 
-        if (!state.get.current().header.clock.hour24.show && this.now.hours() > 12) {
+        if (!state.get.current().header.clock.hour24.show && this.now.hour() > 12) {
           value = value - 12;
         }
 
-        if (!state.get.current().header.clock.hour24.show && this.now.hours() == 0) {
+        if (!state.get.current().header.clock.hour24.show && this.now.hour() == 0) {
           value = 12;
         }
 
         value = wordNumber(value);
 
-        if (state.get.current().header.clock.hour24.show && this.now.hours() > 0 && this.now.hours() < 10) {
+        if (state.get.current().header.clock.hour24.show && this.now.hour() > 0 && this.now.hour() < 10) {
           value = 'Zero ' + value;
         }
 
@@ -63,17 +63,17 @@ export const Clock = function () {
 
       case 'number':
 
-        value = this.now.hours();
+        value = this.now.hour();
 
-        if (!state.get.current().header.clock.hour24.show && this.now.hours() > 12) {
+        if (!state.get.current().header.clock.hour24.show && this.now.hour() > 12) {
           value = value - 12;
         }
 
-        if (!state.get.current().header.clock.hour24.show && this.now.hours() == 0) {
+        if (!state.get.current().header.clock.hour24.show && this.now.hour() == 0) {
           value = 12;
         }
 
-        if (state.get.current().header.clock.hour24.show && this.now.hours() < 10) {
+        if (state.get.current().header.clock.hour24.show && this.now.hour() < 10) {
           value = '0' + value;
         }
 
@@ -93,9 +93,9 @@ export const Clock = function () {
 
       case 'word':
 
-        value = wordNumber(this.now.minutes());
+        value = wordNumber(this.now.minute());
 
-        if (this.now.minutes() > 0 && this.now.minutes() < 10) {
+        if (this.now.minute() > 0 && this.now.minute() < 10) {
           value = 'Zero ' + value;
         }
 
@@ -103,9 +103,9 @@ export const Clock = function () {
 
       case 'number':
 
-        value = this.now.minutes();
+        value = this.now.minute();
 
-        if (this.now.minutes() < 10) {
+        if (this.now.minute() < 10) {
           value = '0' + value;
         }
 
@@ -125,9 +125,9 @@ export const Clock = function () {
 
       case 'word':
 
-        value = wordNumber(this.now.seconds());
+        value = wordNumber(this.now.second());
 
-        if (this.now.seconds() > 0 && this.now.seconds() < 10) {
+        if (this.now.second() > 0 && this.now.second() < 10) {
           value = 'Zero ' + value;
         }
 
@@ -135,9 +135,9 @@ export const Clock = function () {
 
       case 'number':
 
-        value = this.now.seconds();
+        value = this.now.second();
 
-        if (this.now.seconds() < 10) {
+        if (this.now.second() < 10) {
           value = '0' + value;
         }
 
@@ -217,22 +217,22 @@ export const Clock = function () {
 
     this.assemble();
 
-    this.now = moment();
+    this.now = dayjs();
 
     if (state.get.current().header.clock.hour.show) {
-      this.element.hour.innerHTML = this.string.hour();
+      this.element.hour.textContent = this.string.hour();
     }
 
     if (state.get.current().header.clock.minute.show) {
-      this.element.minute.innerHTML = this.string.minute();
+      this.element.minute.textContent = this.string.minute();
     }
 
     if (state.get.current().header.clock.second.show) {
-      this.element.second.innerHTML = this.string.second();
+      this.element.second.textContent = this.string.second();
     }
 
     if (!state.get.current().header.clock.hour24.show && state.get.current().header.clock.meridiem.show) {
-      this.element.meridiem.innerHTML = this.string.meridiem();
+      this.element.meridiem.textContent = this.string.meridiem();
     }
 
   };

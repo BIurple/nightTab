@@ -14,7 +14,7 @@ export const helper = function ({
 
     if (complexText) {
 
-      helper.innerHTML = text;
+      helper.textContent = text;
 
     } else {
 

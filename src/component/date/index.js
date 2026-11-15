@@ -8,7 +8,9 @@ import { isValidString } from '../../utility/isValidString';
 import { complexNode } from '../../utility/complexNode';
 import { clearChildNode } from '../../utility/clearChildNode';
 
-import moment from 'moment';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+dayjs.extend(advancedFormat);
 
 import './index.css';
 
@@ -254,22 +256,22 @@ export const Date = function () {
 
     this.assemble();
 
-    this.now = moment();
+    this.now = dayjs();
 
     if (state.get.current().header.date.day.show) {
-      this.element.day.innerHTML = this.string.day();
+      this.element.day.textContent = this.string.day();
     }
 
     if (state.get.current().header.date.date.show) {
-      this.element.dateOfMonth.innerHTML = this.string.dateOfMonth();
+      this.element.dateOfMonth.textContent = this.string.dateOfMonth();
     }
 
     if (state.get.current().header.date.month.show) {
-      this.element.month.innerHTML = this.string.month();
+      this.element.month.textContent = this.string.month();
     }
 
     if (state.get.current().header.date.year.show) {
-      this.element.year.innerHTML = this.string.year();
+      this.element.year.textContent = this.string.year();
     }
 
   };

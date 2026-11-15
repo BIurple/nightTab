@@ -4,7 +4,7 @@ import { node } from '../../utility/node';
 import { trimString } from '../../utility/trimString';
 import { isValidString } from '../../utility/isValidString';
 
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 import './index.css';
 
@@ -29,7 +29,7 @@ export const Greeting = function() {
 
     const goodMessage = ['Good night', 'Good morning', 'Good afternoon', 'Good evening'];
 
-    this.now = moment();
+    this.now = dayjs();
 
     let value;
 
@@ -43,7 +43,7 @@ export const Greeting = function() {
 
       case 'good':
 
-        value = goodMessage[Math.floor(this.now.hours() / 6)];
+        value = goodMessage[Math.floor(this.now.hour() / 6)];
 
         break;
 
@@ -67,7 +67,7 @@ export const Greeting = function() {
 
         } else {
 
-          value = goodMessage[Math.floor(this.now.hours() / 6)];
+          value = goodMessage[Math.floor(this.now.hour() / 6)];
 
         }
 
@@ -89,7 +89,7 @@ export const Greeting = function() {
 
     }
 
-    this.element.text.innerHTML = value;
+    this.element.text.textContent = value;
 
   };
 

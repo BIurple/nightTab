@@ -12,7 +12,7 @@ export const complexNode = ({
 
     if (complexText) {
 
-      element.innerHTML = text;
+      element.textContent = text;
 
     } else {
 

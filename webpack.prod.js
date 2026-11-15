@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
+const webpack = require('webpack'); // 1. Require webpack to access plugins
 const ZipPlugin = require('zip-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -36,6 +37,11 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
+    }),
+    // 2. Add the IgnorePlugin here to drop unwanted moment locales
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/,
     }),
     new ZipPlugin({
       path: path.resolve(__dirname, 'dist/extension'),

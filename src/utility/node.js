@@ -24,7 +24,7 @@ export const node = (string, node) => {
   let element = document.createElement(tag);
 
   if (text && text != '') {
-    element.innerHTML = text;
+    element.textContent = text;
   }
 
   let attributes = string.slice(string.indexOf('|') + 1, string.length).split(',');
@@ -76,7 +76,7 @@ export const node = (string, node) => {
 
             let div = document.createElement('div');
 
-            div.innerHTML = item;
+            div.textContent = item;
 
             element.appendChild(div.firstChild);
 
@@ -94,7 +94,7 @@ export const node = (string, node) => {
 
           let div = document.createElement('div');
 
-          div.innerHTML = node;
+          div.textContent = node;
 
           element.appendChild(div.firstChild);
 
